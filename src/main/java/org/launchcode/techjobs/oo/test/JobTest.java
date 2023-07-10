@@ -48,24 +48,27 @@ public class JobTest {
     public void testToStringStartsAndEndsWithNewLine() {
         Job objTest1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         assertEquals('\n', objTest1.toString().charAt(0));
-        assertEquals('\n', objTest1.toString().charAt(toString().length()-1));
+        assertEquals('\n', objTest1.toString().charAt(objTest1.toString().length()-1));
     }
 @Test
     public void testToStringContainsCorrectLabelsAndData(){
     Job objTest1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-    String ExpectedData ="\nID: 1\nName: Product tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence\n";
+    String ExpectedData ="\nID: " + objTest1.getId() + "\nName: Product tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence\n";
+
     assertEquals(ExpectedData,objTest1.toString());
     }
     @Test
     public void testToStringHandlesEmptyField() {
-        Job objTest1 = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType(""), new CoreCompetency("Persistence"));
-        String ExpectedData ="\nID: 1\nName: Product tester\nEmployer: Data not available\nLocation: Desert\nPosition Type: Data not available\nCore Competency: Persistence\n";
-        assertEquals(ExpectedData,objTest1.toString());
+        Job objTest1 = new Job("Product tester", new Employer(""), new Location(""), new PositionType("Quality control"), new CoreCompetency(""));
+        String ExpectedData ="\nID: " + objTest1.getId() + "\nName: Product tester\nEmployer: Data not available\nLocation: Data not available\nPosition Type: Quality control\nCore Competency: Data not available\n";
+        String actualData = objTest1.toString();
+        assertEquals(ExpectedData,actualData);
     }
     @Test
     public void testToStringHandlesEmptyJob() {
         String ExpectedData = "\nOOPS! This job does not seem to exist.\n";
         Job Objtest = new Job();
-        assertEquals(ExpectedData,Objtest.toString());
+        String actualData =Objtest.toString();
+        assertEquals(ExpectedData,actualData);
     }
 }
