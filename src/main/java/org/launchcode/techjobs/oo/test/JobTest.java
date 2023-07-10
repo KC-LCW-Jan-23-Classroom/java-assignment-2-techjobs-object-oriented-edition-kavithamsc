@@ -1,6 +1,6 @@
 package org.launchcode.techjobs.oo.test;
 
-import org.junit.Assert;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -16,9 +16,9 @@ import static org.junit.Assert.*;
 public class JobTest {
     @Test
     public void testSettingJobId() {
-        Job objTest1 = new Job();
-        Job objTest2 = new Job();
-        assertNotEquals(objTest1.getId(), objTest2.getId());
+        Job Test1 = new Job();
+        Job Test2 = new Job();
+        assertNotEquals(Test1.getId(), Test2.getId());
     }
 
     @Test
