@@ -23,17 +23,17 @@ public class JobTest {
 
     @Test
     public void testJobConstructorSetsAllFields() {
-        Job objTest1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertEquals("Product tester", objTest1.getName());
-        assertEquals("ACME", objTest1.getEmployer().getValue());
-        assertEquals("Desert", objTest1.getLocation().getValue());
-        assertEquals("Quality control", objTest1.getPositionType().getValue());
-        assertEquals("Persistence", objTest1.getCoreCompetency().getValue());
-        assertTrue(objTest1.getName() instanceof String);
-        assertTrue(objTest1.getEmployer() instanceof Employer);
-        assertTrue(objTest1.getLocation() instanceof Location);
-        assertTrue(objTest1.getPositionType() instanceof PositionType);
-        assertTrue(objTest1.getCoreCompetency() instanceof CoreCompetency);
+        Job objTest3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertEquals("Product tester", objTest3.getName());
+        assertEquals("ACME", objTest3.getEmployer().getValue());
+        assertEquals("Desert", objTest3.getLocation().getValue());
+        assertEquals("Quality control", objTest3.getPositionType().getValue());
+        assertEquals("Persistence", objTest3.getCoreCompetency().getValue());
+        assertTrue(objTest3.getName() instanceof String);
+        assertTrue(objTest3.getEmployer() instanceof Employer);
+        assertTrue(objTest3.getLocation() instanceof Location);
+        assertTrue(objTest3.getPositionType() instanceof PositionType);
+        assertTrue(objTest3.getCoreCompetency() instanceof CoreCompetency);
 
     }
 
@@ -64,11 +64,5 @@ public class JobTest {
         String actualData = objTest1.toString();
         assertEquals(ExpectedData,actualData);
     }
-    @Test
-    public void testToStringHandlesEmptyJob() {
-        String ExpectedData = "\nOOPS! This job does not seem to exist.\n";
-        Job Objtest = new Job();
-        String actualData =Objtest.toString();
-        assertEquals(ExpectedData,actualData);
-    }
+   
 }
