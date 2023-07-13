@@ -62,13 +62,11 @@ public class JobTest {
     }
     @Test
     public void testToStringHandlesEmptyField(){
-        Job job8 = new Job("Product tester", new Employer(""),
+        Job test = new Job("Product tester", new Employer(""),
                 new Location("Desert"), new PositionType("Quality control"),
                 new CoreCompetency("Persistence"));
-        String expected = "\nID: 1\nName: Product tester\nEmployer: Data not available\n" +
-                "Location: Desert\nPosition Type: Quality control\n" +
-                "Core Competency: Persistence\n";
-        String actual = job8.toString();
+        String expected =  "\nID: " + test.getId() + "\nName: Product tester\nEmployer: Data not available\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence\n";
+        String actual = test.toString();
         System.out.println(expected + actual);
         Assert.assertEquals(expected , actual);
     }

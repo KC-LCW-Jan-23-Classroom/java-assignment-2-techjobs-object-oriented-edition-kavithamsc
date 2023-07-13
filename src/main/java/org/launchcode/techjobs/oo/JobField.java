@@ -35,6 +35,10 @@ public abstract class JobField {
     public void setValue(String value) {
         this.value = value;
     }
+
+    public static void setNextId(int nextId) {
+        JobField.nextId = nextId;
+    }
 }
 
 

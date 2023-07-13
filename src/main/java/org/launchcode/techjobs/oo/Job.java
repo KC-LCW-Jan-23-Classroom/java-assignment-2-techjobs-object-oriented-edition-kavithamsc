@@ -39,7 +39,7 @@ public class Job {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() !=o.getClass()) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         Job job = (Job) o;
         return id == job.id;
     }
@@ -54,7 +54,6 @@ public class Job {
 
         return id;
     }
-
 
 
     public String getName() {
@@ -102,43 +101,12 @@ public class Job {
 
     @Override
     public String toString() {
-        String str = "";
-        str += "\nID: ";
-        str += id;
-        str += "\nName: ";
-        if(name == "") {
-            str += "Data not available";
-        }
-        else {
-            str += name;
-        }
-        str += "\nEmployer: ";
-        if(getEmployer().getValue() == ""){
-            str += "Data not available";
-        } else {
-            str += employer.getValue();
-        }
-        str += "\nLocation: ";
-        if(getLocation().getValue() == ""){
-            str += "Data not available";
-        } else {
-            str += location.getValue();
-        }
-        str += "\nPosition Type: ";
-        if(getPositionType().getValue() == ""){
-            str += "Data not available";
-        } else {
-            str += positionType.getValue();
-        }
-        str += "\nCore Competency: ";
-        if(getCoreCompetency().getValue() == ""){
-            str += "Data not available";
-        } else {
-            str += coreCompetency.getValue();
-        }
-        str += "\n";
-        return str;
+
+        return "\nID: " + id + "\n" +
+                "Name: " + (name.isEmpty() ? "Data not available" : name) + "\n" +
+                "Employer: " + (employer.getValue().isEmpty() ? "Data not available" : employer) + "\n" +
+                "Location: " + (location.getValue().isEmpty() ? "Data not available" : location) + "\n" +
+                "Position Type: " + (positionType.getValue().isEmpty() ? "Data not available" : positionType) + "\n" +
+                "Core Competency: " + (coreCompetency.getValue().isEmpty() ? "Data not available" : coreCompetency) + "\n";
     }
-
-
 }
