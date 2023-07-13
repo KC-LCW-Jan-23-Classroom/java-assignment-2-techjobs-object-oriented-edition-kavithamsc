@@ -3,6 +3,7 @@ package org.launchcode.techjobs.oo;
 public class Employer extends JobField {
 
    public Employer(String value){
+
        super(value);
    }
 
@@ -14,4 +15,5 @@ public class Employer extends JobField {
         Employer job= (Employer) o;
         return getId() == job.getId();
     }
+
 }

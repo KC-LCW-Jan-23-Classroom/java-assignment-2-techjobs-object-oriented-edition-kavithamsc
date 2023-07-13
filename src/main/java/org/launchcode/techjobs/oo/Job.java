@@ -39,25 +39,28 @@ public class Job {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Job)) return false;
+        if (o == null || getClass() !=o.getClass()) return false;
         Job job = (Job) o;
         return id == job.id;
     }
 
     @Override
     public int hashCode() {
+
         return Objects.hash(id);
     }
 
     public int getId() {
+
         return id;
     }
 
-    public static void setNextId(int nextId) {
-        Job.nextId = nextId;
-    }
+
 
     public String getName() {
+        if (name == null || name.isEmpty()) {
+            return "Data not available";
+        }
         return name;
     }
 
@@ -99,14 +102,43 @@ public class Job {
 
     @Override
     public String toString() {
-
-        return ("\n" +
-                "ID: "+ (this.getId()+"\n"+
-                "Name: "+ (this.getName().isEmpty() ? "Data not available" : this.getName())+"\n"+
-                "Employer: "+ (this.getEmployer().getValue().isEmpty() ? "Data not available" : this.getEmployer())+"\n"+
-                "Location: "+ (this.getLocation().getValue().isEmpty() ? "Data not available" : this.getLocation())+"\n"+
-                "Position Type: "+ (this.getPositionType().getValue().isEmpty() ? "Data not available" :this.getPositionType()) +"\n"+
-                "Core Competency: "+ (this.getCoreCompetency().getValue().isEmpty() ? "Data not available" : this.getCoreCompetency())+"\n"));
+        String str = "";
+        str += "\nID: ";
+        str += id;
+        str += "\nName: ";
+        if(name == "") {
+            str += "Data not available";
+        }
+        else {
+            str += name;
+        }
+        str += "\nEmployer: ";
+        if(getEmployer().getValue() == ""){
+            str += "Data not available";
+        } else {
+            str += employer.getValue();
+        }
+        str += "\nLocation: ";
+        if(getLocation().getValue() == ""){
+            str += "Data not available";
+        } else {
+            str += location.getValue();
+        }
+        str += "\nPosition Type: ";
+        if(getPositionType().getValue() == ""){
+            str += "Data not available";
+        } else {
+            str += positionType.getValue();
+        }
+        str += "\nCore Competency: ";
+        if(getCoreCompetency().getValue() == ""){
+            str += "Data not available";
+        } else {
+            str += coreCompetency.getValue();
+        }
+        str += "\n";
+        return str;
     }
+
 
 }
